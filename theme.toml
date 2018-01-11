@@ -1,0 +1,12 @@
+name = "Tango"
+license = "MIT"
+licenselink = "https://lab.pztrn.name/fat0troll/hugo-tango-theme/blob/master/LICENSE"
+description = "Hugo Theme for creative and technical writing"
+homepage = "https://lab.pztrn.name/fat0troll/hugo-tango-theme"
+tags = ["blog","minimal","responsive"]
+features = ["blog","font-awesome"]
+min_version = "0.33"
+
+[author]
+  name = "Vladimir Hodakov"
+  homepage = "https://blog.hodakov.me/"

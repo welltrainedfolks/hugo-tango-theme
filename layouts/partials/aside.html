@@ -1,0 +1,10 @@
+<aside class="is-size-6">
+    <time class="post-date" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00 " | safeHTML }}">{{ .Date.Format "02.01.2006" }}</time>
+    {{ if .Params.categories }} | {{ .Site.Params.i18n_categories }}
+    <em>
+        {{ range $i, $c := .Params.categories }} {{ if $i }}, {{ end }}
+        <a href="/categories/{{$c | urlize }}/">{{ $c }}</a>
+        {{ end }}
+    </em>
+    {{ end }} | {{ .ReadingTime }} {{ .Site.Params.i18n_read_time }}
+</aside>

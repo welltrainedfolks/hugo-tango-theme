@@ -1,0 +1,38 @@
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        {{ range $index, $page := first 10 (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
+                        <article class="tile is-child">
+                            <span class="is-size-2">
+                                <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                                {{ if .Params.tags }}
+                                <div class="tags is-pulled-right">
+                                    {{ range $i, $t := .Params.tags }}
+                                    <span class="tag">
+                                        <a href="/tags/{{$t | urlize }}/">#{{ $t }}</a>
+                                    </span>
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                            </span>
+                            {{ partial "aside" . }}
+                            <br>
+                            <p>{{ .Summary }}</p>
+                            {{ if .Truncated }}
+                            <a href="{{ .RelPermalink }}">{{ .Site.Params.i18n_read_more }}</a>
+                            {{ end }}
+                            <hr>
+                        </article>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ end }}

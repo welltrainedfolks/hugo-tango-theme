@@ -1,0 +1,10 @@
+{{ if not .Params.meta }}
+<div class="column">
+    {{ with .PrevInSection }}
+    <a class="button is-pulled-left" href="{{.Permalink}}">← {{ .Title }}</a>
+    {{ end }} {{ with .NextInSection }}
+    <a class="button is-pulled-right" href="{{.Permalink}}">{{ .Title }} -></a>
+    {{ end }}
+</div>
+{{ else }}
+<br> {{ end }}

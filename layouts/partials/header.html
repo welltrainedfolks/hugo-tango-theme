@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="{{ .Site.LanguageCode | default " en-us " }}">
+
+<head>
+    <title>{{ .Site.Title }}</title>
+    {{ partial "meta" . }} {{ partial "header_includes" . -}}
+</head>
+
+<body>
+    <div id="container">
+        <nav class="navbar is-dark is-active" role="navigation" aria-label="main navigation">
+            <div class="navbar-start">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="{{ relURL " / " }}">{{ .Site.Title | markdownify }}</a>
+                </div>
+            </div>
+            <div class="navbar-end">
+                {{ range .Site.Menus.main }}
+                <a class="navbar-item" href="{{.URL}}">{{ .Name }}</a>
+                {{ end }}
+            </div>
+        </nav>
+
+        <main>
