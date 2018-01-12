@@ -3,23 +3,31 @@
 <html lang="{{ .Site.LanguageCode | default " en-us " }}">
 
 <head>
-    <title>{{ .Site.Title }}</title>
+    <title>{{ if ne .Page.Title .Site.Title }}{{ .Page.Title }} | {{ .Site.Title }} {{ else }}{{ .Site.Title }}{{ end }}</title>
     {{ partial "meta" . }} {{ partial "header_includes" . -}}
 </head>
 
 <body>
-    <div id="container">
-        <nav class="navbar is-dark is-active" role="navigation" aria-label="main navigation">
-            <div class="navbar-start">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="{{ relURL " / " }}">{{ .Site.Title | markdownify }}</a>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3">
+                    <nav class="panel">
+                        <p class="panel-heading">
+                            
+                        </p>
+                        <div class="panel-block">
+                            <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4"><a href="{{ relURL "/" }}">{{ .Site.Title | markdownify }}</a></p>
+                                        <p class="subtitle is-5">{{ .Site.Params.description }} </p>
+                                    </div>
+                                </div>
+                        </div>
+                        {{ range .Site.Menus.main }}
+                        <a class="panel-block" href="{{.URL}}">{{ .Name }}</a>
+                        {{ end }}
+                    </nav>
                 </div>
-            </div>
-            <div class="navbar-end">
-                {{ range .Site.Menus.main }}
-                <a class="navbar-item" href="{{.URL}}">{{ .Name }}</a>
-                {{ end }}
-            </div>
-        </nav>
-
-        <main>
+                <div class="column is-9">
+                    <main>

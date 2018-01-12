@@ -1,37 +1,34 @@
 {{ define "main" }}
 {{ $baseurl := .Site.BaseURL }}
+<div class="columns">
+    <div class="column">
+        {{ if eq .Data.Singular "tag" }}
+            <h2 class="is-size-2">#{{ .Title | lower }}</h2>
+        {{ else }}
+            <h2 class="is-size-2">{{ .Title }}</h2>
+        {{ end }}
 
-<div class="container">
-    <div class="columns">
-        <div class="column">
-            {{ if eq .Data.Singular "tag" }}
-                <h2 class="is-size-2">#{{ .Title | lower }}</h2>
-            {{ else }}
-                <h2 class="is-size-2">{{ .Title }}</h2>
+        {{ .Content }}
+
+        <hr>
+        {{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups }}
+            <h3 class="is-size-4">{{ .Key }}</h3>
+            {{ range .Pages }}
+            <article>
+                <span class="is-size-2"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                    {{ if .Params.tags }}
+                    <div class="tags is-pulled-right">
+                    {{ range $i, $t := .Params.tags }}
+                        <span class="tag"><a href="/tags/{{$t | urlize }}/">#{{ $t }}</a></span>
+                    {{ end }}
+                    </div>
+                    {{ end }}
+                </span>
+                {{ partial "aside" . }}
+                <hr>
+            </article>
             {{ end }}
-
-            {{ .Content }}
-
-            <hr>
-            {{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups }}
-                <h3 class="is-size-4">{{ .Key }}</h3>
-                {{ range .Pages }}
-                <article class="tile is-child">
-                    <span class="is-size-2"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
-                        {{ if .Params.tags }}
-                        <div class="tags is-pulled-right">
-                        {{ range $i, $t := .Params.tags }}
-                            <span class="tag"><a href="/tags/{{$t | urlize }}/">#{{ $t }}</a></span>
-                        {{ end }}
-                        </div>
-                        {{ end }}
-                    </span>
-                    {{ partial "aside" . }}
-                    <hr>
-                </article>
-                {{ end }}
-            {{ end }}
-        </div>
+        {{ end }}
     </div>
 </div>
 

@@ -1,16 +1,16 @@
-<article class="content">
-    <span class="is-size-2"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
-        {{ if .Params.tags }}
-        <div class="tags is-pulled-right">
-            {{ range $i, $t := .Params.tags }}
-            <span class="tag"><a href="/tags/{{$t | urlize }}/">#{{ $t }}</a></span>
-            {{ end }}
-        </div>
+<span class="is-size-2"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+    {{ if .Params.tags }}
+    <div class="tags is-pulled-right">
+        {{ range $i, $t := .Params.tags }}
+        <span class="tag"><a href="/tags/{{$t | urlize }}/">#{{ $t }}</a></span>
         {{ end }}
-    </span>
-    {{ partial "aside" . }}
-    <hr>
-
+    </div>
+    {{ end }}
+</span>
+{{ partial "aside" . }}
+<div class="is-clearfix">
+</div>
+<div class="content">
     {{.Content}}
+</div>
 
-</article>
