@@ -1,9 +1,9 @@
 name = "Tango"
 license = "MIT"
 licenselink = "https://lab.pztrn.name/fat0troll/hugo-tango-theme/blob/master/LICENSE"
-description = "Hugo Theme for creative and technical writing"
+description = "Hugo Theme inspired by linux.org.ru default theme"
 homepage = "https://lab.pztrn.name/fat0troll/hugo-tango-theme"
-tags = ["blog","minimal","responsive"]
+tags = ["blog","minimal","responsive","dark"]
 features = ["blog","font-awesome"]
 min_version = "0.33"
 
