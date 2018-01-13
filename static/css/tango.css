@@ -3,7 +3,7 @@ Tango theme CSS.
 Based on Bulma framework, inspired by linux.org.ru Tango theme.
 */
 
-body {
+html, body {
     font-family: "Arial", sans-serif!important;
     background-color: #2e3436!important;
     color: #babdb6!important;
