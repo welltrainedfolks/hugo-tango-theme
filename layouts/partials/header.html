@@ -12,22 +12,21 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-3">
-                    <nav class="panel">
-                        <p class="panel-heading">
-                            
-                        </p>
-                        <div class="panel-block">
-                            <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4"><a href="{{ relURL "/" }}">{{ .Site.Title | markdownify }}</a></p>
-                                        <p class="subtitle is-5">{{ .Site.Params.description }} </p>
-                                    </div>
-                                </div>
+                    <div class="columns">
+                        <div class="column left-block">
+                            <p class="is-size-3">
+                                <a href="{{ relURL "/" }}">{{ .Site.Title | markdownify }}</a>
+                            </p>
+                            <i class="is-size-6">{{ .Site.Params.description }} </i>
+                            <ul>
+                                {{ range .Site.Menus.main }}
+                                <li>
+                                    <a href="{{.URL}}">{{ .Name }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
                         </div>
-                        {{ range .Site.Menus.main }}
-                        <a class="panel-block" href="{{.URL}}">{{ .Name }}</a>
-                        {{ end }}
-                    </nav>
+                    </div>
                 </div>
                 <div class="column is-9">
                     <main>

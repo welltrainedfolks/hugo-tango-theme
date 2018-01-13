@@ -1,0 +1,88 @@
+/*
+Tango theme CSS.
+Based on Bulma framework, inspired by linux.org.ru Tango theme.
+*/
+
+body {
+    font-family: "Arial", sans-serif!important;
+    background-color: #2e3436!important;
+    color: #babdb6!important;
+}
+
+h1, h2, h3, h4, h5, h6, a, p, strong, blockquote {
+    color: #babdb6!important;
+}
+
+blockquote {
+    background-color: #2e3436!important;
+    font-style: italic;
+    border-left: 5px solid #555753!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", sans-serif;
+}
+
+.button {
+    color: #eeeeec!important;
+    text-decoration: none!important;
+}
+
+a {
+    color: #729fcf!important;
+    text-decoration: underline!important;
+}
+
+.is-size-3 a {
+    color: #babdb6!important;
+}
+
+.tag:hover, .button:hover {
+    box-shadow: 0 0 1px 1px #729fcf!important;
+}
+
+.tag, .button {
+    background: #555753!important;
+}
+
+.tag a {
+    color: #fcaf3e!important;
+}
+
+.left-block {
+    background-color: #272C2D!important;
+}
+
+ul li {
+    list-style-type: bullets!important;
+}
+
+thead {
+    background-color: #555753!important;
+}
+
+td {
+    border: 1px solid #555753!important;
+}
+
+th, thead:hover {
+    color: #babdb6!important;
+    font-weight: normal!important;
+    border: 1px solid #555753!important;
+}
+
+tr:hover {
+    background-color: #5c3566!important;
+}
+
+pre {
+    color: #f8f8f2;
+    background-color: #2e3436;
+    border-radius: 3px;
+    border: 1px dashed #777;
+}
+
+.footer {
+    background-color: #2e3436!important;
+    color: #babdb6!important;
+}
