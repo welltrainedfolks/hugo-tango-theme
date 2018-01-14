@@ -23,8 +23,29 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Open Sans", sans-serif;
 }
 
-.button {
+.button, .pagination-next:disabled, .pagination-previous:disabled {
     color: #eeeeec!important;
+    text-decoration: none!important;
+}
+
+.pagination-next[disabled], .pagination-previous[disabled] {
+    border: 1px solid #eeeeec!important;
+    color: #eeeeec!important;
+    background-color: #2e3436!important;
+    text-decoration: none!important;
+}
+
+.pagination-next, .pagination-previous, .pagination-link {
+    border: 1px solid #729fcf!important;
+    color: #729fcf!important;
+    text-decoration: none!important;
+    font-weight: bold;
+}
+
+.pagination-link.is-current {
+    border: 1px solid #eeeeec!important;
+    color: #eeeeec!important;
+    background-color: #2e3436!important;
     text-decoration: none!important;
 }
 

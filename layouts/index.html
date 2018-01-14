@@ -1,25 +1,26 @@
 {{ define "main" }}
-{{ range $index, $page := first 10 (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
-<article>
-    <span class="is-size-3">
-        <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
-        {{ if .Params.tags }}
-        <div class="tags is-pulled-right">
-            {{ range $i, $t := .Params.tags }}
-            <span class="tag">
-                <a href="/tags/{{$t | urlize }}/">#{{ $t }}</a>
+    {{ $baseurl := .Site.BaseURL }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
+        <article>
+            <span class="is-size-2"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                {{ if .Params.tags }}
+                <div class="tags is-pulled-right">
+                {{ range $i, $t := .Params.tags }}
+                    <span class="tag"><a href="/tags/{{$t | urlize }}/">#{{ $t }}</a></span>
+                {{ end }}
+                </div>
+                {{ end }}
             </span>
+            {{ partial "aside" . }}
+            <br>
+            <p>{{ .Summary }}</p>
+            {{ if .Truncated }}
+            <a href="{{ .RelPermalink }}">{{ .Site.Params.i18n_read_more }}</a>
             {{ end }}
-        </div>
-        {{ end }}
-    </span>
-    {{ partial "aside" . }}
-    <br>
-    <p>{{ .Summary }}</p>
-    {{ if .Truncated }}
-    <a href="{{ .RelPermalink }}">{{ .Site.Params.i18n_read_more }}</a>
+            <hr>
+        </article>
     {{ end }}
-    <hr>
-</article>
-{{ end }}
+
+    {{ partial "pagination" . }}
 {{ end }}
