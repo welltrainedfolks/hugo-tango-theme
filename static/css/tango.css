@@ -103,6 +103,11 @@ pre {
     border: 1px dashed #777;
 }
 
+code, kbd {
+    color: #f8f8f2;
+    background-color: #555753;
+}
+
 .footer {
     background-color: #2e3436!important;
     color: #babdb6!important;
