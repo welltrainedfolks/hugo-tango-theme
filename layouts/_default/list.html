@@ -11,9 +11,10 @@
         {{ .Content }}
 
         <hr>
-        {{ range (.Paginate (.Data.Pages.GroupByDate "2006")).PageGroups }}
+        {{ if .Pages }}
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups}}
             <h3 class="is-size-4">{{ .Key }}</h3>
-            {{ range .Pages }}
+            {{ range where .Pages "Section" "posts" }}
             <article>
                 <span class="is-size-2"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
                     {{ if .Params.tags }}
@@ -28,6 +29,7 @@
                 <hr>
             </article>
             {{ end }}
+        {{ end }}
         {{ end }}
     </div>
 </div>
